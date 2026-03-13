@@ -31,7 +31,7 @@ console.log(pets.sort())
 */
 console.log("-------Esercizio 3--------")
 
-console.log(pets.sort().reverse())
+console.log(pets.reverse())
 
 /* ESERCIZIO 4
     Scrivi del codice per spostare il primo elemento dall'array "pets" in ultima posizione.
@@ -69,21 +69,25 @@ const cars = [
 
 console.log("-------Esercizio 5--------")
 
+// creo una funzione per generare un numero intero randomico da 1 a 9
 const randomNumberFrom0to9 = function () {
   const number = Math.floor(Math.random() * 10)
   return number
 }
+// creo una funzione per geneare un carattere MAIUSCOLO randomico
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const randomLetter = function () {
   const i = Math.floor(Math.random() * 26)
   const letter = alphabet.charAt(i)
   return letter
 }
-
+// creao una funzione per generare una targa randomica
 const randomLicensePlate = function () {
   const licensePlate = `${randomLetter()}${randomLetter()}${randomNumberFrom0to9()}${randomNumberFrom0to9()}${randomNumberFrom0to9()}${randomLetter()}${randomLetter()}`
   return licensePlate
 }
+
+// aggiungo la targa ad ogni auto e mi assicuro che ogni targa sia diversa dall'altra
 cars[0].licensePlate = randomLicensePlate()
 
 for (i = 1; i < cars.length; i++) {
@@ -107,6 +111,7 @@ for (i = 0; i < cars.length; i++) {
 
 console.log("-------Esercizio 6--------")
 
+// Funzione pre creare una nuova targa diversa dalle precedenti
 const newAutoLP = function () {
   let newAuto = randomLicensePlate()
   for (i = 0; i < cars.length; i++) {
@@ -116,6 +121,7 @@ const newAutoLP = function () {
   }
   return newAuto
 }
+// Aggiumgo un nuovo oggetto auto nell'array
 cars.push({
   brand: "Audi",
   model: "Q3",
@@ -123,7 +129,7 @@ cars.push({
   trims: ["sport", "style", "s-line"],
   licensePlate: newAutoLP(),
 })
-
+// Rimuovo l'ultimo elemento della proprietà "trims" da ogni auto
 for (i = 0; i < cars.length; i++) {
   cars[i].trims.pop()
 }
@@ -170,6 +176,19 @@ while (numericArray[j] !== 32 && j < numericArray.length) {
   console.log(numericArray[j])
   j++
 }
+
+// Versione che stampa anche il 32
+/*
+let j = 1
+if (numericArray[0] === 23) {
+  console.log(numericArray[0])
+} else {
+  while (numericArray[j - 1] !== 32 && j < numericArray.length) {
+    console.log(numericArray[j])
+    j++
+  }
+}
+*/
 
 /* ESERCIZIO 10
     Partendo dall'array fornito e utilizzando un costrutto switch, genera un nuovo array composto dalle posizioni di ogni carattere all'interno
